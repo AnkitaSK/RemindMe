@@ -16,6 +16,8 @@
 		F633FE0E1AAACE2600DA4FC3 /* RemindMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE0D1AAACE2600DA4FC3 /* RemindMeTests.m */; };
 		F633FE1A1AAAD26100DA4FC3 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE191AAAD26100DA4FC3 /* DBManager.m */; };
 		F633FE1D1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */; };
+		F633FE201AAADD9300DA4FC3 /* CustomerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */; };
+		F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE221AAADD9400DA4FC3 /* CalenderData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +47,10 @@
 		F633FE181AAAD26100DA4FC3 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		F633FE191AAAD26100DA4FC3 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		F633FE1C1AAAD2AF00DA4FC3 /* DBManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBManager.xcdatamodel; sourceTree = "<group>"; };
+		F633FE1E1AAADD9300DA4FC3 /* CustomerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfo.h; sourceTree = "<group>"; };
+		F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfo.m; sourceTree = "<group>"; };
+		F633FE211AAADD9400DA4FC3 /* CalenderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderData.h; sourceTree = "<group>"; };
+		F633FE221AAADD9400DA4FC3 /* CalenderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +137,10 @@
 				F633FE181AAAD26100DA4FC3 /* DBManager.h */,
 				F633FE191AAAD26100DA4FC3 /* DBManager.m */,
 				F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */,
+				F633FE211AAADD9400DA4FC3 /* CalenderData.h */,
+				F633FE221AAADD9400DA4FC3 /* CalenderData.m */,
+				F633FE1E1AAADD9300DA4FC3 /* CustomerInfo.h */,
+				F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */,
 			);
 			name = DBManager;
 			sourceTree = "<group>";
@@ -240,6 +250,8 @@
 				F633FDF71AAACE2600DA4FC3 /* AppDelegate.m in Sources */,
 				F633FDF41AAACE2600DA4FC3 /* main.m in Sources */,
 				F633FE1A1AAAD26100DA4FC3 /* DBManager.m in Sources */,
+				F633FE201AAADD9300DA4FC3 /* CustomerInfo.m in Sources */,
+				F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
