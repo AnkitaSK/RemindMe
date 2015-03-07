@@ -23,6 +23,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73z-b0-cbO">
+                                <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
                                 <connections>
                                     <segue destination="qMb-dj-0Zw" kind="embed" id="nyy-WJ-aK3"/>
                                 </connections>
@@ -30,7 +31,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="OEQ-dw-lna"/>
+                    <navigationItem key="navigationItem" id="OEQ-dw-lna">
+                        <barButtonItem key="leftBarButtonItem" title="Slide" id="vno-dd-bgY">
+                            <connections>
+                                <action selector="slideDrawerBarButtonClicked:" destination="vXZ-lx-hvc" id="j9Q-oA-JJL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barButtonSlide" destination="vno-dd-bgY" id="Qn5-Qh-MEr"/>
+                        <outlet property="containerLeftPanelView" destination="73z-b0-cbO" id="FLt-a5-6AP"/>
+                        <outlet property="containerRightPanelView" destination="Wh0-c2-gxY" id="HGU-7c-49q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,8 +94,9 @@
                         <viewControllerLayoutGuide type="bottom" id="LSh-FH-Zgq"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bjg-1Y-BBb">
+                        <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                 </viewController>

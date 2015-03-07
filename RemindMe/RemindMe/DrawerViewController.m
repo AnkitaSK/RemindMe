@@ -8,8 +8,14 @@
 
 #import "DrawerViewController.h"
 
-@interface DrawerViewController ()
+#define DRAWER_WIDTH    240
 
+@interface DrawerViewController ()
+@property (strong, nonatomic) IBOutlet UIView *containerLeftPanelView;
+@property (strong, nonatomic) IBOutlet UIView *containerRightPanelView;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
+
+- (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender;
 @end
 
 @implementation DrawerViewController
@@ -34,4 +40,65 @@
 }
 */
 
+-(void) movePanelToRight
+{
+    
+//    self.transparentView.frame = CGRectMake(0, 0, self.mainContainerView.frame.size.width, self.mainContainerView.frame.size.height);
+//    
+//    [self.mainContainerView addSubview:self.transparentView];
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.containerLeftPanelView.frame = CGRectMake(0, 0, DRAWER_WIDTH, self.containerLeftPanelView.frame.size.height);
+                         self.containerRightPanelView.frame = CGRectMake(DRAWER_WIDTH, self.containerRightPanelView.frame.origin.y, self.containerRightPanelView.frame.size.width, self.containerRightPanelView.frame.size.height);
+                         
+                         //Apply shadow border
+                         [self.containerLeftPanelView.layer setBorderWidth:0.5];
+                         [self.containerLeftPanelView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+                         
+                     }
+                     completion:^(BOOL finished){
+                         //
+                     }];
+    
+    self.barButtonSlide.tag = 1;
+}
+
+-(void) movePanelToOriginal
+{
+//    [self.settingsViewController.userNameTextField resignFirstResponder];
+//    
+//    [self.transparentView removeFromSuperview];
+    
+    [UIView animateWithDuration:0.3
+                     animations:^{
+                         self.containerLeftPanelView.frame = CGRectMake(0, 0, 0, self.containerLeftPanelView.frame.size.height);
+                         self.containerRightPanelView.frame = CGRectMake(0, self.containerRightPanelView.frame.origin.y, self.containerRightPanelView.frame.size.width, self.containerRightPanelView.frame.size.height);
+                     }
+                     completion:^(BOOL finished){
+                         
+                         
+                         //Remove  border
+                         [self.containerLeftPanelView.layer setBorderWidth:0.0];
+                         
+                     }];
+    
+    self.barButtonSlide.tag = 0;
+}
+
+
+- (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self movePanelToRight];
+            break;
+            
+        case 1:
+            [self movePanelToOriginal];
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
