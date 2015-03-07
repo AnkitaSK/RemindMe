@@ -14,6 +14,10 @@
 		F633FDFF1AAACE2600DA4FC3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F633FDFE1AAACE2600DA4FC3 /* Images.xcassets */; };
 		F633FE021AAACE2600DA4FC3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F633FE001AAACE2600DA4FC3 /* LaunchScreen.xib */; };
 		F633FE0E1AAACE2600DA4FC3 /* RemindMeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE0D1AAACE2600DA4FC3 /* RemindMeTests.m */; };
+		F633FE1A1AAAD26100DA4FC3 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE191AAAD26100DA4FC3 /* DBManager.m */; };
+		F633FE1D1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */; };
+		F633FE201AAADD9300DA4FC3 /* CustomerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */; };
+		F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE221AAADD9400DA4FC3 /* CalenderData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,13 @@
 		F633FE071AAACE2600DA4FC3 /* RemindMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RemindMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F633FE0C1AAACE2600DA4FC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F633FE0D1AAACE2600DA4FC3 /* RemindMeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemindMeTests.m; sourceTree = "<group>"; };
+		F633FE181AAAD26100DA4FC3 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		F633FE191AAAD26100DA4FC3 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		F633FE1C1AAAD2AF00DA4FC3 /* DBManager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DBManager.xcdatamodel; sourceTree = "<group>"; };
+		F633FE1E1AAADD9300DA4FC3 /* CustomerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfo.h; sourceTree = "<group>"; };
+		F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfo.m; sourceTree = "<group>"; };
+		F633FE211AAADD9400DA4FC3 /* CalenderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderData.h; sourceTree = "<group>"; };
+		F633FE221AAADD9400DA4FC3 /* CalenderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +92,7 @@
 		F633FDF01AAACE2600DA4FC3 /* RemindMe */ = {
 			isa = PBXGroup;
 			children = (
+				F633FE171AAAD24600DA4FC3 /* DBManager */,
 				F633FDF51AAACE2600DA4FC3 /* AppDelegate.h */,
 				F633FDF61AAACE2600DA4FC3 /* AppDelegate.m */,
 				F633FDF81AAACE2600DA4FC3 /* ViewController.h */,
@@ -117,6 +129,20 @@
 				F633FE0C1AAACE2600DA4FC3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F633FE171AAAD24600DA4FC3 /* DBManager */ = {
+			isa = PBXGroup;
+			children = (
+				F633FE181AAAD26100DA4FC3 /* DBManager.h */,
+				F633FE191AAAD26100DA4FC3 /* DBManager.m */,
+				F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */,
+				F633FE211AAADD9400DA4FC3 /* CalenderData.h */,
+				F633FE221AAADD9400DA4FC3 /* CalenderData.m */,
+				F633FE1E1AAADD9300DA4FC3 /* CustomerInfo.h */,
+				F633FE1F1AAADD9300DA4FC3 /* CustomerInfo.m */,
+			);
+			name = DBManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,9 +245,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F633FE1D1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld in Sources */,
 				F633FDFA1AAACE2600DA4FC3 /* ViewController.m in Sources */,
 				F633FDF71AAACE2600DA4FC3 /* AppDelegate.m in Sources */,
 				F633FDF41AAACE2600DA4FC3 /* main.m in Sources */,
+				F633FE1A1AAAD26100DA4FC3 /* DBManager.m in Sources */,
+				F633FE201AAADD9300DA4FC3 /* CustomerInfo.m in Sources */,
+				F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +452,19 @@
 			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F633FE1C1AAAD2AF00DA4FC3 /* DBManager.xcdatamodel */,
+			);
+			currentVersion = F633FE1C1AAAD2AF00DA4FC3 /* DBManager.xcdatamodel */;
+			path = DBManager.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F633FDE61AAACE2600DA4FC3 /* Project object */;
 }
