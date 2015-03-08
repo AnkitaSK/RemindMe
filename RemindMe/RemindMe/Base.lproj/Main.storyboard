@@ -231,8 +231,12 @@
                                             <action selector="nextButtonPressed:" destination="jxh-Ol-eAN" eventType="touchUpInside" id="aEl-jn-CCh"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-ES-CtZ">
-                                        <rect key="frame" x="158" y="8" width="150" height="30"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHG-ES-CtZ">
+                                        <rect key="frame" x="225" y="10" width="150" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="TMj-hk-o3b"/>
+                                            <constraint firstAttribute="height" constant="30" id="c02-av-iKO"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -246,11 +250,13 @@
                                     <constraint firstItem="CIu-dP-Ihv" firstAttribute="top" secondItem="Gph-gr-Zsm" secondAttribute="top" constant="3" id="I4p-bd-hjS"/>
                                     <constraint firstItem="byh-3b-omA" firstAttribute="top" secondItem="Gph-gr-Zsm" secondAttribute="top" constant="10" id="bbm-RP-jWz"/>
                                     <constraint firstItem="byh-3b-omA" firstAttribute="top" secondItem="Gph-gr-Zsm" secondAttribute="top" constant="10" id="dGy-cA-rHd"/>
+                                    <constraint firstAttribute="centerX" secondItem="bHG-ES-CtZ" secondAttribute="centerX" id="ezb-op-rhN"/>
                                     <constraint firstAttribute="height" constant="50" id="hcw-nY-rzV"/>
                                     <constraint firstAttribute="bottom" secondItem="byh-3b-omA" secondAttribute="bottom" constant="10" id="ll8-G7-cWG"/>
                                     <constraint firstAttribute="trailing" secondItem="byh-3b-omA" secondAttribute="trailing" constant="131" id="mlx-sY-4d0"/>
                                     <constraint firstAttribute="bottom" secondItem="byh-3b-omA" secondAttribute="bottom" id="mvy-tC-TZB"/>
                                     <constraint firstAttribute="trailing" secondItem="byh-3b-omA" secondAttribute="trailing" constant="8" id="rYb-cE-aa8"/>
+                                    <constraint firstAttribute="centerY" secondItem="bHG-ES-CtZ" secondAttribute="centerY" id="ueK-rx-aPk"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
