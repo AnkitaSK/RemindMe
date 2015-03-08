@@ -19,24 +19,20 @@
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wh0-c2-gxY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
-                                    <segue destination="Pvt-Hw-x4L" kind="embed" id="xVz-sN-dBd"/>
+                                    <segue destination="kHi-FU-Drw" kind="embed" identifier="CenterViewSegue" id="xVz-sN-dBd"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73z-b0-cbO">
                                 <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
                                 <connections>
-                                    <segue destination="qMb-dj-0Zw" kind="embed" id="nyy-WJ-aK3"/>
+                                    <segue destination="qMb-dj-0Zw" kind="embed" identifier="LeftPanelViewSegue" id="nyy-WJ-aK3"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="OEQ-dw-lna">
-                        <barButtonItem key="leftBarButtonItem" title="Slide" id="vno-dd-bgY">
-                            <connections>
-                                <action selector="slideDrawerBarButtonClicked:" destination="vXZ-lx-hvc" id="j9Q-oA-JJL"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="Slide" id="vno-dd-bgY"/>
                     </navigationItem>
                     <connections>
                         <outlet property="barButtonSlide" destination="vno-dd-bgY" id="Qn5-Qh-MEr"/>
@@ -51,8 +47,9 @@
         <!--Navigation Controller-->
         <scene sceneID="Gf2-vf-IMC">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ed0-Es-htV" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Ed0-Es-htV" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IyB-4u-9gV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -80,10 +77,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="S0B-aX-Q1H">
+                        <barButtonItem key="leftBarButtonItem" title="slide" id="lGA-X4-1L6">
+                            <connections>
+                                <action selector="barButtonSlideClicked:" destination="Pvt-Hw-x4L" id="wSF-L9-Xi1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barButtonSlide" destination="lGA-X4-1L6" id="XdE-1z-J54"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFa-hD-0ip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1741" y="-121"/>
+            <point key="canvasLocation" x="2553" y="-121"/>
         </scene>
         <!--Left Panel View Controller-->
         <scene sceneID="Dxa-R5-m1B">
@@ -103,6 +110,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nu9-rq-OcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1626" y="-858"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="MIJ-vE-0Ha">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kHi-FU-Drw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="psV-Qx-x1t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Pvt-Hw-x4L" kind="relationship" relationship="rootViewController" id="evp-t4-hJU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kfy-01-bkw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1741" y="-121"/>
         </scene>
     </scenes>
 </document>

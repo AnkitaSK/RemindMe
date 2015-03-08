@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CenterViewController : UIViewController
+@protocol CenterViewControllerDelegate <NSObject>
+- (void)movePanelToRight;
+-(void)movePanelToOriginal;
+@end
 
+@interface CenterViewController : UIViewController
+@property (weak,nonatomic) id<CenterViewControllerDelegate> centerViewControllerDelegate;
+
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
 @end

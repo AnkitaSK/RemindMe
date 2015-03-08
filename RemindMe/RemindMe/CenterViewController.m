@@ -9,6 +9,7 @@
 #import "CenterViewController.h"
 
 @interface CenterViewController ()
+- (IBAction)barButtonSlideClicked:(UIBarButtonItem *)sender;
 
 @end
 
@@ -34,4 +35,18 @@
 }
 */
 
+- (IBAction)barButtonSlideClicked:(UIBarButtonItem *)sender {
+    switch (sender.tag) {
+        case 0:
+            [self.centerViewControllerDelegate movePanelToRight];
+            break;
+            
+        case 1:
+            [self.centerViewControllerDelegate movePanelToOriginal];
+            break;
+            
+        default:
+            break;
+    }
+}
 @end
