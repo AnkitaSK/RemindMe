@@ -37,9 +37,17 @@
     
     CalenderData *calenderData1 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     calenderData1.customerID = @1;
+    calenderData1.itemNo = @9;
     calenderData1.day = @10;
     calenderData1.month = @3;
     calenderData1.year = @2015;
+    
+    CalenderData *calenderData3 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
+    calenderData3.customerID = @1;
+    calenderData3.itemNo = @10;
+    calenderData3.day = @11;
+    calenderData3.month = @3;
+    calenderData3.year = @2015;
 //    [self.calendarDataArray addObject:calenderData1];
     
     CalenderData *calenderData2 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
@@ -97,10 +105,10 @@
     NSError *dberror;
     NSArray *result = [context executeFetchRequest:fetchrequest error:&dberror];
     if ([result count] > 0) {
-        CalenderData *data = [result objectAtIndex:0];
+//        CalenderData *data = [result objectAtIndex:0];
     
-        NSLog(@"%@",data.day);
-        [self.leftPanelViewControllerDelegate customerSelectedWithCalendarData:data];
+//        NSLog(@"%@",data.day);
+        [self.leftPanelViewControllerDelegate customerSelectedWithCalendarData:result];
     }
 }
 

@@ -34,8 +34,9 @@ int count = 0;
 @property (strong,nonatomic) NSMutableArray *dataArray;
 @property (strong,nonatomic) NSMutableArray *dayArray;
 @property (strong,nonatomic) NSMutableArray *weekDaysArray;
+
 //@property (strong,nonatomic) NSIndexPath *selectedItem;
-@property (strong,nonatomic) NSMutableArray *selectedItems;
+
 @property (strong,nonatomic) NSDateComponents *originalDateComponent;
 @property (strong,nonatomic) NSDateComponents *presentDateComponent;
 @property (strong, nonatomic) IBOutlet UILabel *labelTitle;
@@ -121,7 +122,7 @@ int count = 0;
     dateComponents = [self beginningOfMonthDetailWithCurrentDate:[NSDate date]];
     //    weekdays
     
-    self.weekDaysArray = [[NSMutableArray alloc] initWithArray:@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thurs",@"Fri",@"Sat"]];
+    self.weekDaysArray = [[NSMutableArray alloc] initWithArray:@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thur",@"Fri",@"Sat"]];
     
     [self updatingDays:dateComponents];
     
@@ -430,6 +431,7 @@ int count = 0;
 
 //}
 - (IBAction)barButtonSlideClicked:(UIBarButtonItem *)sender {
+    [self reset];
     switch (sender.tag) {
         case 0:
             [self.centerViewControllerDelegate movePanelToRight];

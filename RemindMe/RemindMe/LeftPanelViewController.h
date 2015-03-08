@@ -11,7 +11,7 @@
 
 @protocol LeftPanelViewControllerDelegate <NSObject>
 
--(void)customerSelectedWithCalendarData:(CalenderData *)calendarData;
+-(void)customerSelectedWithCalendarData:(NSArray *)calendarDataArray;
 
 @end
 

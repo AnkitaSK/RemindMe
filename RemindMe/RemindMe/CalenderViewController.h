@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
 @property (nonatomic) NSNumber* customerID;
+@property (strong,nonatomic) NSMutableArray *selectedItems;
 @property (strong, nonatomic) IBOutlet CalenderView *calenderView;
 @end
 
