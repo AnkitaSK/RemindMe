@@ -115,6 +115,9 @@
 -(void)customerSelectedWithCalendarData:(NSArray *)calendarDataArray {
     CalenderData *data = [calendarDataArray objectAtIndex:0];
     self.centerViewController.customerID = data.customerID;
+    if (self.centerViewController.selectedItems >0) {
+        [self.centerViewController.selectedItems removeAllObjects];
+    }
     [self.centerViewController.selectedItems addObjectsFromArray:calendarDataArray];
     [self movePanelToOriginal];
     [self.centerViewController.calenderView reloadData];

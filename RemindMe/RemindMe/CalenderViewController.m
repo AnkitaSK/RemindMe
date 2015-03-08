@@ -141,6 +141,10 @@ int count = 0;
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+}
+
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate Methods
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     //    return 1;

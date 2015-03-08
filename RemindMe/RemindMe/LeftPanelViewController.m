@@ -52,7 +52,8 @@
     
     CalenderData *calenderData2 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     calenderData2.customerID = @2;
-    calenderData2.day = @12;
+    calenderData2.itemNo = @1;
+    calenderData2.day = @2;
     calenderData2.month = @3;
     calenderData2.year = @2015;
 //    [self.calendarDataArray addObject:calenderData2];
