@@ -19,14 +19,7 @@
 
 @implementation LeftPanelViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.customerInfoArray = [[NSArray alloc] init];
-    self.calendarDataArray = [[NSArray alloc] init];
-//    connect to parse and fetch from parse
-    
-//    store it in a db
-    NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
+- (void)insertData:(NSManagedObjectContext *)context {
     CustomerInfo *customerInfo1 = [NSEntityDescription insertNewObjectForEntityForName:@"CustomerInfo" inManagedObjectContext:context];
     customerInfo1.customerName = @"Ankita";
     customerInfo1.cutomerID = @1;
@@ -48,7 +41,7 @@
     calenderData3.day = @11;
     calenderData3.month = @3;
     calenderData3.year = @2015;
-//    [self.calendarDataArray addObject:calenderData1];
+    //    [self.calendarDataArray addObject:calenderData1];
     
     CalenderData *calenderData2 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     calenderData2.customerID = @2;
@@ -56,13 +49,31 @@
     calenderData2.day = @2;
     calenderData2.month = @3;
     calenderData2.year = @2015;
-//    [self.calendarDataArray addObject:calenderData2];
+    //    [self.calendarDataArray addObject:calenderData2];
     
     //save context
     NSError *error;
     if (![context save:&error]) {
         NSLog(@"error while saving: %@",[error localizedDescription]);
     }
+    
+    [[NSUserDefaults standardUserDefaults] setBool:TRUE forKey:@"isDataInserted"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.customerInfoArray = [[NSArray alloc] init];
+    self.calendarDataArray = [[NSArray alloc] init];
+//    connect to parse and fetch from parse
+    
+//    store it in a db
+    NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
+    
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:@"isDataInserted"]) {
+        [self insertData:context];
+    }
+    
 
 //    fetch it from db
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
