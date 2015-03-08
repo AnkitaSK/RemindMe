@@ -35,7 +35,6 @@ int count = 0;
 @property (strong,nonatomic) NSMutableArray *dayArray;
 @property (strong,nonatomic) NSMutableArray *weekDaysArray;
 
-//@property (strong,nonatomic) NSIndexPath *selectedItem;
 
 @property (strong,nonatomic) NSDateComponents *originalDateComponent;
 @property (strong,nonatomic) NSDateComponents *presentDateComponent;
