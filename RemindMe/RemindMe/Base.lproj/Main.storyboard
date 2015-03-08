@@ -295,7 +295,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="hAb-di-n8O">
-                        <barButtonItem key="leftBarButtonItem" title="slide" id="AIq-fj-8ll">
+                        <barButtonItem key="leftBarButtonItem" image="CollapsIcon" id="AIq-fj-8ll">
                             <connections>
                                 <action selector="barButtonSlideClicked:" destination="jxh-Ol-eAN" id="6As-Ed-D7w"/>
                             </connections>
@@ -313,4 +313,7 @@
             <point key="canvasLocation" x="2427" y="-121"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CollapsIcon" width="22" height="15"/>
+    </resources>
 </document>
