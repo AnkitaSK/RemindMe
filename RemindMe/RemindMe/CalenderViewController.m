@@ -34,11 +34,10 @@ int count = 0;
 @property (strong,nonatomic) NSMutableArray *dataArray;
 @property (strong,nonatomic) NSMutableArray *dayArray;
 @property (strong,nonatomic) NSMutableArray *weekDaysArray;
+//@property (strong,nonatomic) NSIndexPath *selectedItem;
 @property (strong,nonatomic) NSMutableArray *selectedItems;
 @property (strong,nonatomic) NSDateComponents *originalDateComponent;
-
-- (IBAction)nextButtonPressed:(UIBarButtonItem *)sender;
-- (IBAction)previousButtonPressed:(UIBarButtonItem *)sender;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 
 @end
 
@@ -48,7 +47,7 @@ int count = 0;
     // Configure layout
     self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [self.flowLayout setItemSize:CGSizeMake(45, 45)];
-    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
+    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     self.flowLayout.minimumInteritemSpacing = 0.0f;
     self.flowLayout.minimumLineSpacing = 1.0f;
     [self.calenderView setCollectionViewLayout:self.flowLayout];
@@ -79,7 +78,8 @@ int count = 0;
 
 - (void)updateNavigationBarTitle:(NSDateComponents *)dateComponents {
     //    update title
-    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
+//    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
+    self.labelTitle.text = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
 }
 
 - (void)updatingDays:(NSDateComponents *)dateComponents {
@@ -171,9 +171,9 @@ int count = 0;
                 cell.backgroundColor = [UIColor redColor];
                 //            isItemTapped = FALSE;
             }
-//            else {
-//                cell.backgroundColor = [UIColor whiteColor];
-//            }
+            //            else {
+            //                cell.backgroundColor = [UIColor whiteColor];
+            //            }
         }
         
         {
@@ -242,8 +242,8 @@ int count = 0;
         isItemDoubleTapped = TRUE;
         [self.selectedItems removeObjectsInArray:tempArray];
     }
-//    isItemTapped = !isItemTapped;
-//    self.selectedItem = indexPath;
+    //    isItemTapped = !isItemTapped;
+    //    self.selectedItem = indexPath;
     if (!isItemDoubleTapped) {
         [self.selectedItems addObject:indexPath];
     }
@@ -274,8 +274,8 @@ int count = 0;
     return nextYear;
 }
 
-- (IBAction)nextButtonPressed:(UIBarButtonItem *)sender {
-    
+//- (IBAction)nextButtonPressed:(UIButton *)sender {
+- (IBAction)nextButtonPressed:(id)sender {
     ++ self.monthCount;
     if (self.originalDateComponent.month == 12) {
         isNewYearSet = NO;
@@ -312,12 +312,12 @@ int count = 0;
             self.originalDateComponent = [self beginningOfMonthDetailWithCurrentDate:nextYear];
         }
     }
-
+    
     //    generating a date component for a new date of next month
     NSDateComponents *nextMonthsDateComponent = [self generatingNewDateComponent:self.originalDateComponent];
     [self updateNavigationBarTitle:nextMonthsDateComponent];
     
-//    get todays date
+    //    get todays date
     NSDateComponents *currentDateComponent = [self.calenderView currentDateDetail:[NSDate date]];
     if ((currentDateComponent.month == nextMonthsDateComponent.month) && (currentDateComponent.weekday == nextMonthsDateComponent.weekday)) {
         self.todaysDay = currentDateComponent.day;
@@ -335,14 +335,16 @@ int count = 0;
     [self.calenderView reloadData];
 }
 
+
+//}
+
 - (void)reset {
     isDatesDisplayed = FALSE;
     isBlankSet = FALSE;
     count = 0;
     starttingBlanks = 0;
 }
-
-- (IBAction)previousButtonPressed:(UIBarButtonItem *)sender {
+- (IBAction)previousButtonPressed:(id)sender {
     -- self.monthCount;
     if (self.originalDateComponent.month == 12) {
         isNewYearSet = NO;
@@ -402,6 +404,10 @@ int count = 0;
     [self.calenderView reloadData];
 }
 
+//- (IBAction)previousButtonPressed:(UIButton *)sender {
+
+
+//}
 - (IBAction)barButtonSlideClicked:(UIBarButtonItem *)sender {
     switch (sender.tag) {
         case 0:
