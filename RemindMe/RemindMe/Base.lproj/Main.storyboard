@@ -23,7 +23,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73z-b0-cbO">
-                                <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <connections>
                                     <segue destination="qMb-dj-0Zw" kind="embed" identifier="LeftPanelViewSegue" id="nyy-WJ-aK3"/>
                                 </connections>
@@ -72,11 +72,41 @@
                         <viewControllerLayoutGuide type="bottom" id="LSh-FH-Zgq"/>
                     </layoutGuides>
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Bjg-1Y-BBb">
-                        <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="7OW-yh-eEC">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="Tu6-TP-a4w"/>
+                                    <constraint firstAttribute="height" constant="600" id="yuz-do-NAK"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="Ghl-fU-ejJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ghl-fU-ejJ" id="h5z-O5-QRH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="qMb-dj-0Zw" id="kr9-GV-WBr"/>
+                                    <outlet property="delegate" destination="qMb-dj-0Zw" id="qdn-xh-MAz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7OW-yh-eEC" secondAttribute="trailing" id="1ox-1x-q8R"/>
+                            <constraint firstItem="7OW-yh-eEC" firstAttribute="leading" secondItem="Bjg-1Y-BBb" secondAttribute="leading" id="aff-4U-PPG"/>
+                            <constraint firstAttribute="bottom" secondItem="7OW-yh-eEC" secondAttribute="bottom" id="lnO-nm-zGI"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="tableviewCustomer" destination="7OW-yh-eEC" id="uMK-Zz-lDJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nu9-rq-OcK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
