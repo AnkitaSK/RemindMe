@@ -7,13 +7,18 @@
 //
 
 #import "DrawerViewController.h"
+#import "CalenderViewController.h"
+#import "LeftPanelViewController.h"
 
 #define DRAWER_WIDTH    240
 
-@interface DrawerViewController ()
+@interface DrawerViewController ()<CalenderViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *containerLeftPanelView;
 @property (strong, nonatomic) IBOutlet UIView *containerRightPanelView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
+
+@property (strong,nonatomic) CalenderViewController *centerViewController;
+@property (strong,nonatomic) LeftPanelViewController *leftPanelViewController;
 
 - (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender;
 @end
@@ -30,15 +35,34 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"%@", segue.identifier);
+    if ([segue.identifier isEqualToString:@"CenterViewSegue"])
+    {   UINavigationController *navigationController = [segue destinationViewController];
+        
+        for (UIViewController *viewConntroller in navigationController.viewControllers)
+        {
+            if ([viewConntroller isKindOfClass:[CalenderViewController class]])
+            {
+                self.centerViewController =(CalenderViewController *) viewConntroller;
+                self.centerViewController.centerViewControllerDelegate = self;
+            }
+            
+        }
+        
+        
+    }
+    
+    if ([segue.identifier isEqualToString:@"LeftPanelViewSegue"])
+    {
+        self.leftPanelViewController =(LeftPanelViewController *) [segue destinationViewController];
+//        self.leftPanelViewController.delegate = self;
+    }
 }
-*/
 
 -(void) movePanelToRight
 {
@@ -61,7 +85,7 @@
                          //
                      }];
     
-    self.barButtonSlide.tag = 1;
+    self.centerViewController.barButtonSlide.tag = 1;
 }
 
 -(void) movePanelToOriginal
@@ -83,22 +107,6 @@
                          
                      }];
     
-    self.barButtonSlide.tag = 0;
-}
-
-
-- (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender {
-    switch (sender.tag) {
-        case 0:
-            [self movePanelToRight];
-            break;
-            
-        case 1:
-            [self movePanelToOriginal];
-            break;
-            
-        default:
-            break;
-    }
+    self.centerViewController.barButtonSlide.tag = 0;
 }
 @end
