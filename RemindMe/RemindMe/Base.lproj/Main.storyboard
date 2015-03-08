@@ -16,20 +16,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wh0-c2-gxY">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wh0-c2-gxY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="600" id="jLf-Dt-yAB"/>
+                                    <constraint firstAttribute="width" constant="600" id="jg7-yc-oeL"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="kHi-FU-Drw" kind="embed" identifier="CenterViewSegue" id="xVz-sN-dBd"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="73z-b0-cbO">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="73z-b0-cbO">
                                 <rect key="frame" x="0.0" y="0.0" width="1" height="600"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="KDW-ie-P7g"/>
+                                    <constraint firstAttribute="height" constant="600" id="y27-id-nWe"/>
+                                </constraints>
                                 <connections>
                                     <segue destination="qMb-dj-0Zw" kind="embed" identifier="LeftPanelViewSegue" id="nyy-WJ-aK3"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wh0-c2-gxY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="4Qw-FM-6SI"/>
+                            <constraint firstAttribute="trailing" secondItem="73z-b0-cbO" secondAttribute="trailing" constant="599" id="AfI-NO-pvY"/>
+                            <constraint firstItem="73z-b0-cbO" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Lt0-1z-no6"/>
+                            <constraint firstAttribute="trailing" secondItem="Wh0-c2-gxY" secondAttribute="trailing" id="P08-oq-Lcp"/>
+                            <constraint firstAttribute="bottom" secondItem="73z-b0-cbO" secondAttribute="bottom" id="PYf-0B-Y9k"/>
+                            <constraint firstItem="73z-b0-cbO" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="gXP-Zg-YdD"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Wh0-c2-gxY" secondAttribute="bottom" id="hbP-hw-hBL"/>
+                            <constraint firstItem="Wh0-c2-gxY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="oTU-Wv-btd"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OEQ-dw-lna">
                         <barButtonItem key="leftBarButtonItem" title="Slide" id="vno-dd-bgY"/>
@@ -80,6 +98,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="Tu6-TP-a4w"/>
+                                    <constraint firstAttribute="width" constant="600" id="sKE-Kb-8Tn"/>
                                     <constraint firstAttribute="height" constant="600" id="yuz-do-NAK"/>
                                 </constraints>
                                 <prototypes>
@@ -91,6 +110,11 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Tu6-TP-a4w"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="qMb-dj-0Zw" id="kr9-GV-WBr"/>
                                     <outlet property="delegate" destination="qMb-dj-0Zw" id="qdn-xh-MAz"/>
@@ -102,6 +126,11 @@
                             <constraint firstItem="7OW-yh-eEC" firstAttribute="leading" secondItem="Bjg-1Y-BBb" secondAttribute="leading" id="aff-4U-PPG"/>
                             <constraint firstAttribute="bottom" secondItem="7OW-yh-eEC" secondAttribute="bottom" id="lnO-nm-zGI"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1ox-1x-q8R"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <connections>

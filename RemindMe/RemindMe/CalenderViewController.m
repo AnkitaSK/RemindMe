@@ -49,7 +49,7 @@ int count = 0;
     // Configure layout
     self.flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [self.flowLayout setItemSize:CGSizeMake(45, 45)];
-    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    [self.flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     self.flowLayout.minimumInteritemSpacing = 0.0f;
     self.flowLayout.minimumLineSpacing = 1.0f;
     [self.calenderView setCollectionViewLayout:self.flowLayout];
