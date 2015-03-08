@@ -80,7 +80,7 @@ int count = 0;
 - (void)updateNavigationBarTitle:(NSDateComponents *)dateComponents {
     self.presentDateComponent = dateComponents;
     //    update title
-//    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
+    //    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
     self.labelTitle.text = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
 }
 
@@ -234,10 +234,9 @@ int count = 0;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    if (nil == self.calenderData) {
-        NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
-        self.calenderData = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
-//    }
+    
+    NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
+    self.calenderData = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     
     
     NSMutableArray *tempArray = [NSMutableArray array];
@@ -257,13 +256,18 @@ int count = 0;
     //    isItemTapped = !isItemTapped;
     //    self.selectedItem = indexPath;
     if (!isItemDoubleTapped) {
-//        [self.selectedItems addObject:indexPath];
+        //        [self.selectedItems addObject:indexPath];
         
         self.calenderData.customerID = self.customerID;
         self.calenderData.day = [self.dayArray objectAtIndex:indexPath.item];
         self.calenderData.itemNo = [NSNumber numberWithInteger:indexPath.item];
         self.calenderData.month = [NSNumber numberWithInteger:self.presentDateComponent.month];
         self.calenderData.year = [NSNumber numberWithInteger:self.presentDateComponent.year];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"error while saving: %@",[error localizedDescription]);
+        }
         
         [self.selectedItems addObject: self.calenderData];
     }
@@ -272,9 +276,6 @@ int count = 0;
     [collectionView reloadData];
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
 
 #pragma mark - IBAction
 - (NSDate *)nextYearDateWithYearCount:(int)yearCount {
