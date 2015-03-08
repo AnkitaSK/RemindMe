@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="CalenderData" representedClassName="CalenderData" syncable="YES">
+        <attribute name="customerID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="day" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="month" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="weekday" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -8,9 +9,11 @@
     </entity>
     <entity name="CustomerInfo" representedClassName="CustomerInfo" syncable="YES">
         <attribute name="customerName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="cutomerID" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="calenderData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CalenderData" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CalenderData" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="CustomerInfo" positionX="-54" positionY="18" width="128" height="60"/>
+        <element name="CalenderData" positionX="-236" positionY="182" width="128" height="118"/>
+        <element name="CustomerInfo" positionX="-54" positionY="18" width="128" height="88"/>
     </elements>
 </model>
