@@ -20,7 +20,7 @@
 
 @property (strong,nonatomic) CalenderViewController *centerViewController;
 @property (strong,nonatomic) LeftPanelViewController *leftPanelViewController;
-@property (strong,nonatomic) CalenderData *calData;
+//@property (strong,nonatomic) CalenderData *calData;
 
 - (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender;
 @end
@@ -113,8 +113,7 @@
 
 #pragma mark - LeftPanelViewControllerDelegate Methods
 -(void)customerSelectedWithCalendarData:(CalenderData *)calendarData {
-    self.calData = calendarData;
-    self.centerViewController.calenderData = self.calData;
+    self.centerViewController.customerID = calendarData.customerID;
     [self movePanelToOriginal];
     [self.centerViewController.calenderView reloadData];
 }

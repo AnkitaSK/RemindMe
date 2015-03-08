@@ -19,7 +19,7 @@
 @property (weak,nonatomic) id<CalenderViewControllerDelegate> centerViewControllerDelegate;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
-@property (strong,nonatomic) CalenderData *calenderData;
+@property (nonatomic) NSNumber* customerID;
 @property (strong, nonatomic) IBOutlet CalenderView *calenderView;
 @end
 
