@@ -7,17 +7,17 @@
 //
 
 #import "DrawerViewController.h"
-#import "CenterViewController.h"
+#import "CalenderViewController.h"
 #import "LeftPanelViewController.h"
 
 #define DRAWER_WIDTH    240
 
-@interface DrawerViewController ()<CenterViewControllerDelegate>
+@interface DrawerViewController ()<CalenderViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *containerLeftPanelView;
 @property (strong, nonatomic) IBOutlet UIView *containerRightPanelView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
 
-@property (strong,nonatomic) CenterViewController *centerViewController;
+@property (strong,nonatomic) CalenderViewController *centerViewController;
 @property (strong,nonatomic) LeftPanelViewController *leftPanelViewController;
 
 - (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender;
@@ -46,9 +46,9 @@
         
         for (UIViewController *viewConntroller in navigationController.viewControllers)
         {
-            if ([viewConntroller isKindOfClass:[CenterViewController class]])
+            if ([viewConntroller isKindOfClass:[CalenderViewController class]])
             {
-                self.centerViewController =(CenterViewController *) viewConntroller;
+                self.centerViewController =(CalenderViewController *) viewConntroller;
                 self.centerViewController.centerViewControllerDelegate = self;
             }
             
@@ -108,21 +108,5 @@
                      }];
     
     self.centerViewController.barButtonSlide.tag = 0;
-}
-
-
-- (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender {
-    switch (sender.tag) {
-        case 0:
-            [self movePanelToRight];
-            break;
-            
-        case 1:
-            [self movePanelToOriginal];
-            break;
-            
-        default:
-            break;
-    }
 }
 @end

@@ -63,10 +63,10 @@
             </objects>
             <point key="canvasLocation" x="34" y="-398"/>
         </scene>
-        <!--Center View Controller-->
+        <!--Calender View Controller-->
         <scene sceneID="DIq-Q5-xPn">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Pvt-Hw-x4L" customClass="CenterViewController" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Pvt-Hw-x4L" customClass="CalenderViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mPE-8g-uG6"/>
                         <viewControllerLayoutGuide type="bottom" id="9uF-vY-qV5"/>
@@ -74,18 +74,32 @@
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ecf-HA-ehE">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" directionalLockEnabled="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UEU-ud-aKm" customClass="CalenderView">
+                                <rect key="frame" x="0.0" y="130" width="600" height="400"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HRQ-Bq-Obs">
+                                    <size key="itemSize" width="40" height="40"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="S0B-aX-Q1H">
                         <barButtonItem key="leftBarButtonItem" title="slide" id="lGA-X4-1L6">
                             <connections>
-                                <action selector="barButtonSlideClicked:" destination="Pvt-Hw-x4L" id="wSF-L9-Xi1"/>
+                                <action selector="barButtonSlideClicked:" destination="Pvt-Hw-x4L" id="6YY-na-cSA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barButtonSlide" destination="lGA-X4-1L6" id="XdE-1z-J54"/>
+                        <outlet property="barButtonSlide" destination="lGA-X4-1L6" id="cyg-D9-uMu"/>
+                        <outlet property="calenderView" destination="UEU-ud-aKm" id="6Rh-hK-15Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XFa-hD-0ip" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,8 +20,8 @@
 		F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */ = {isa = PBXBuildFile; fileRef = F633FE221AAADD9400DA4FC3 /* CalenderData.m */; };
 		F6B3FEF11AABECE000E51E03 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B3FEEE1AABECE000E51E03 /* CustomCell.xib */; };
 		F6B3FEF21AABECE000E51E03 /* CalenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3FEF01AABECE000E51E03 /* CalenderView.m */; };
+		F6CFDADB1AABF8B900EE24F7 /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CFDADA1AABF8B900EE24F7 /* CalenderViewController.m */; };
 		F6F880161AAAE29500195B1E /* LeftPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F880151AAAE29500195B1E /* LeftPanelViewController.m */; };
-		F6F880191AAAE2C800195B1E /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F880181AAAE2C800195B1E /* CenterViewController.m */; };
 		F6F8801C1AAAE2D700195B1E /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F8801B1AAAE2D700195B1E /* DrawerViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -59,10 +59,10 @@
 		F6B3FEEE1AABECE000E51E03 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		F6B3FEEF1AABECE000E51E03 /* CalenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderView.h; sourceTree = "<group>"; };
 		F6B3FEF01AABECE000E51E03 /* CalenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderView.m; sourceTree = "<group>"; };
+		F6CFDAD91AABF8B900EE24F7 /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
+		F6CFDADA1AABF8B900EE24F7 /* CalenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderViewController.m; sourceTree = "<group>"; };
 		F6F880141AAAE29500195B1E /* LeftPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPanelViewController.h; sourceTree = "<group>"; };
 		F6F880151AAAE29500195B1E /* LeftPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftPanelViewController.m; sourceTree = "<group>"; };
-		F6F880171AAAE2C800195B1E /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
-		F6F880181AAAE2C800195B1E /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		F6F8801A1AAAE2D700195B1E /* DrawerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerViewController.h; sourceTree = "<group>"; };
 		F6F8801B1AAAE2D700195B1E /* DrawerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,8 +166,8 @@
 			children = (
 				F6F880141AAAE29500195B1E /* LeftPanelViewController.h */,
 				F6F880151AAAE29500195B1E /* LeftPanelViewController.m */,
-				F6F880171AAAE2C800195B1E /* CenterViewController.h */,
-				F6F880181AAAE2C800195B1E /* CenterViewController.m */,
+				F6CFDAD91AABF8B900EE24F7 /* CalenderViewController.h */,
+				F6CFDADA1AABF8B900EE24F7 /* CalenderViewController.m */,
 				F6F8801A1AAAE2D700195B1E /* DrawerViewController.h */,
 				F6F8801B1AAAE2D700195B1E /* DrawerViewController.m */,
 			);
@@ -289,10 +289,10 @@
 				F633FDFA1AAACE2600DA4FC3 /* ViewController.m in Sources */,
 				F633FDF71AAACE2600DA4FC3 /* AppDelegate.m in Sources */,
 				F6F8801C1AAAE2D700195B1E /* DrawerViewController.m in Sources */,
+				F6CFDADB1AABF8B900EE24F7 /* CalenderViewController.m in Sources */,
 				F6B3FEF21AABECE000E51E03 /* CalenderView.m in Sources */,
 				F633FDF41AAACE2600DA4FC3 /* main.m in Sources */,
 				F633FE1A1AAAD26100DA4FC3 /* DBManager.m in Sources */,
-				F6F880191AAAE2C800195B1E /* CenterViewController.m in Sources */,
 				F633FE201AAADD9300DA4FC3 /* CustomerInfo.m in Sources */,
 				F6F880161AAAE29500195B1E /* LeftPanelViewController.m in Sources */,
 				F633FE231AAADD9400DA4FC3 /* CalenderData.m in Sources */,
