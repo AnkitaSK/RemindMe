@@ -174,7 +174,7 @@ int count = 0;
     }
     else if (indexPath.section == 1) {
         for (CalenderData *data in self.selectedItems) {
-            if ([data.itemNo integerValue] == indexPath.item && nil != data && !isItemDoubleTapped) {
+            if ([data.itemNo integerValue] == indexPath.item && nil != data && !isItemDoubleTapped && [data.month integerValue] == self.presentDateComponent.month) {
                 cell.backgroundColor = [UIColor redColor];
                 //            isItemTapped = FALSE;
             }

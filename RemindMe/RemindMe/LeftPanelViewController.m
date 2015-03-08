@@ -38,8 +38,8 @@
     CalenderData *calenderData1 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     calenderData1.customerID = @1;
     calenderData1.itemNo = @9;
-    calenderData1.day = @10;
-    calenderData1.month = @3;
+    calenderData1.day = @7;
+    calenderData1.month = @4;
     calenderData1.year = @2015;
     
     CalenderData *calenderData3 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
