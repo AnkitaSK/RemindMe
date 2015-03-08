@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalenderData.h"
+#import "CalenderView.h"
 
 @protocol CalenderViewControllerDelegate <NSObject>
 - (void)movePanelToRight;
@@ -17,6 +19,8 @@
 @property (weak,nonatomic) id<CalenderViewControllerDelegate> centerViewControllerDelegate;
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
-
+@property (nonatomic) NSNumber* customerID;
+@property (strong,nonatomic) NSMutableArray *selectedItems;
+@property (strong, nonatomic) IBOutlet CalenderView *calenderView;
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import "CalenderViewController.h"
-#import "CalenderView.h"
+#import "DBManager.h"
 
 #define kHeaderHeight 1
 #define kInterSectionMargin 1
@@ -23,7 +23,7 @@ int count = 0;
     BOOL isBeginningOfNewYear;
     BOOL isNewYearSet;
 }
-@property (strong, nonatomic) IBOutlet CalenderView *calenderView;
+
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) NSInteger weekDay;
 @property (nonatomic) NSInteger day;
@@ -34,11 +34,13 @@ int count = 0;
 @property (strong,nonatomic) NSMutableArray *dataArray;
 @property (strong,nonatomic) NSMutableArray *dayArray;
 @property (strong,nonatomic) NSMutableArray *weekDaysArray;
-//@property (strong,nonatomic) NSIndexPath *selectedItem;
-@property (strong,nonatomic) NSMutableArray *selectedItems;
-@property (strong,nonatomic) NSDateComponents *originalDateComponent;
-@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
 
+//@property (strong,nonatomic) NSIndexPath *selectedItem;
+
+@property (strong,nonatomic) NSDateComponents *originalDateComponent;
+@property (strong,nonatomic) NSDateComponents *presentDateComponent;
+@property (strong, nonatomic) IBOutlet UILabel *labelTitle;
+@property (strong,nonatomic) CalenderData *calenderData;
 @end
 
 @implementation CalenderViewController
@@ -77,8 +79,9 @@ int count = 0;
 }
 
 - (void)updateNavigationBarTitle:(NSDateComponents *)dateComponents {
+    self.presentDateComponent = dateComponents;
     //    update title
-//    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
+    //    self.navigationController.navigationBar.topItem.title = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
     self.labelTitle.text = [NSString stringWithFormat:@"%@ %ld",[self.calenderView currentMonthFromvalue:(int)dateComponents.month],(long)dateComponents.year];
 }
 
@@ -104,6 +107,10 @@ int count = 0;
     [self.dataArray addObjectsFromArray:@[self.weekDaysArray,self.dayArray]];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.selectedItems = [[NSMutableArray alloc] init];
@@ -115,7 +122,7 @@ int count = 0;
     dateComponents = [self beginningOfMonthDetailWithCurrentDate:[NSDate date]];
     //    weekdays
     
-    self.weekDaysArray = [[NSMutableArray alloc] initWithArray:@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thurs",@"Fri",@"Sat"]];
+    self.weekDaysArray = [[NSMutableArray alloc] initWithArray:@[@"Sun",@"Mon",@"Tue",@"Wed",@"Thur",@"Fri",@"Sat"]];
     
     [self updatingDays:dateComponents];
     
@@ -132,6 +139,10 @@ int count = 0;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
 }
 
 #pragma mark - UICollectionViewDataSource,UICollectionViewDelegate Methods
@@ -166,8 +177,8 @@ int count = 0;
         [titleLabel setText:cellData];
     }
     else if (indexPath.section == 1) {
-        for (NSIndexPath *selectedIndex in self.selectedItems) {
-            if (selectedIndex.item == indexPath.item && nil != selectedIndex && !isItemDoubleTapped) {
+        for (CalenderData *data in self.selectedItems) {
+            if ([data.itemNo integerValue] == indexPath.item && nil != data && !isItemDoubleTapped && [data.month integerValue] == self.presentDateComponent.month) {
                 cell.backgroundColor = [UIColor redColor];
                 //            isItemTapped = FALSE;
             }
@@ -228,10 +239,15 @@ int count = 0;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
+    self.calenderData = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
+    
+    
     NSMutableArray *tempArray = [NSMutableArray array];
-    for (NSIndexPath *selectedIndexPath in self.selectedItems) {
-        if (indexPath == selectedIndexPath) {
-            [tempArray addObject:selectedIndexPath];
+    for (CalenderData *data in self.selectedItems) {
+        if (indexPath.item == [data.itemNo integerValue]) {
+            [tempArray addObject:data];
         }
         else{
             isItemDoubleTapped = FALSE;
@@ -245,16 +261,26 @@ int count = 0;
     //    isItemTapped = !isItemTapped;
     //    self.selectedItem = indexPath;
     if (!isItemDoubleTapped) {
-        [self.selectedItems addObject:indexPath];
+        //        [self.selectedItems addObject:indexPath];
+        
+        self.calenderData.customerID = self.customerID;
+        self.calenderData.day = [self.dayArray objectAtIndex:indexPath.item];
+        self.calenderData.itemNo = [NSNumber numberWithInteger:indexPath.item];
+        self.calenderData.month = [NSNumber numberWithInteger:self.presentDateComponent.month];
+        self.calenderData.year = [NSNumber numberWithInteger:self.presentDateComponent.year];
+        
+        NSError *error;
+        if (![context save:&error]) {
+            NSLog(@"error while saving: %@",[error localizedDescription]);
+        }
+        
+        [self.selectedItems addObject: self.calenderData];
     }
     
     [self reset];
     [collectionView reloadData];
 }
 
-//- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-//
-//}
 
 #pragma mark - IBAction
 - (NSDate *)nextYearDateWithYearCount:(int)yearCount {
@@ -409,6 +435,7 @@ int count = 0;
 
 //}
 - (IBAction)barButtonSlideClicked:(UIBarButtonItem *)sender {
+    [self reset];
     switch (sender.tag) {
         case 0:
             [self.centerViewControllerDelegate movePanelToRight];
