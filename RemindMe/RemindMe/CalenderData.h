@@ -17,5 +17,6 @@
 @property (nonatomic, retain) NSNumber * weekday;
 @property (nonatomic, retain) NSNumber * year;
 @property (nonatomic, retain) NSNumber * customerID;
+@property (nonatomic, retain) NSNumber * itemNo;
 
 @end

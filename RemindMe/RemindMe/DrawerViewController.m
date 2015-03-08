@@ -9,16 +9,18 @@
 #import "DrawerViewController.h"
 #import "CalenderViewController.h"
 #import "LeftPanelViewController.h"
+#import "CalenderData.h"
 
 #define DRAWER_WIDTH    240
 
-@interface DrawerViewController ()<CalenderViewControllerDelegate>
+@interface DrawerViewController ()<CalenderViewControllerDelegate,LeftPanelViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *containerLeftPanelView;
 @property (strong, nonatomic) IBOutlet UIView *containerRightPanelView;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *barButtonSlide;
 
 @property (strong,nonatomic) CalenderViewController *centerViewController;
 @property (strong,nonatomic) LeftPanelViewController *leftPanelViewController;
+@property (strong,nonatomic) CalenderData *calData;
 
 - (IBAction)slideDrawerBarButtonClicked:(UIBarButtonItem *)sender;
 @end
@@ -60,12 +62,12 @@
     if ([segue.identifier isEqualToString:@"LeftPanelViewSegue"])
     {
         self.leftPanelViewController =(LeftPanelViewController *) [segue destinationViewController];
-//        self.leftPanelViewController.delegate = self;
+        self.leftPanelViewController.leftPanelViewControllerDelegate = self;
     }
 }
 
--(void) movePanelToRight
-{
+#pragma mark - CalenderViewControllerDelegate Methods
+-(void) movePanelToRight {
     
 //    self.transparentView.frame = CGRectMake(0, 0, self.mainContainerView.frame.size.width, self.mainContainerView.frame.size.height);
 //    
@@ -88,8 +90,7 @@
     self.centerViewController.barButtonSlide.tag = 1;
 }
 
--(void) movePanelToOriginal
-{
+-(void) movePanelToOriginal {
 //    [self.settingsViewController.userNameTextField resignFirstResponder];
 //    
 //    [self.transparentView removeFromSuperview];
@@ -108,5 +109,13 @@
                      }];
     
     self.centerViewController.barButtonSlide.tag = 0;
+}
+
+#pragma mark - LeftPanelViewControllerDelegate Methods
+-(void)customerSelectedWithCalendarData:(CalenderData *)calendarData {
+    self.calData = calendarData;
+    self.centerViewController.calenderData = self.calData;
+    [self movePanelToOriginal];
+    [self.centerViewController.calenderView reloadData];
 }
 @end

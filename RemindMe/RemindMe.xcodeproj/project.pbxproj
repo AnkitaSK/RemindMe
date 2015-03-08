@@ -18,8 +18,8 @@
 		F633FE1D1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */; };
 		F6B3FEF11AABECE000E51E03 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B3FEEE1AABECE000E51E03 /* CustomCell.xib */; };
 		F6B3FEF21AABECE000E51E03 /* CalenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = F6B3FEF01AABECE000E51E03 /* CalenderView.m */; };
-		F6C286C21AAC205200AF9853 /* CustomerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C286C11AAC205200AF9853 /* CustomerInfo.m */; };
-		F6C286C51AAC205300AF9853 /* CalenderData.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C286C41AAC205300AF9853 /* CalenderData.m */; };
+		F6C286C91AAC3C4C00AF9853 /* CustomerInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C286C81AAC3C4C00AF9853 /* CustomerInfo.m */; };
+		F6C286CF1AAC3FFE00AF9853 /* CalenderData.m in Sources */ = {isa = PBXBuildFile; fileRef = F6C286CE1AAC3FFE00AF9853 /* CalenderData.m */; };
 		F6CFDADB1AABF8B900EE24F7 /* CalenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6CFDADA1AABF8B900EE24F7 /* CalenderViewController.m */; };
 		F6F880161AAAE29500195B1E /* LeftPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F880151AAAE29500195B1E /* LeftPanelViewController.m */; };
 		F6F8801C1AAAE2D700195B1E /* DrawerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6F8801B1AAAE2D700195B1E /* DrawerViewController.m */; };
@@ -55,10 +55,10 @@
 		F6B3FEEE1AABECE000E51E03 /* CustomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
 		F6B3FEEF1AABECE000E51E03 /* CalenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderView.h; sourceTree = "<group>"; };
 		F6B3FEF01AABECE000E51E03 /* CalenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderView.m; sourceTree = "<group>"; };
-		F6C286C01AAC205200AF9853 /* CustomerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomerInfo.h; path = ../CustomerInfo.h; sourceTree = "<group>"; };
-		F6C286C11AAC205200AF9853 /* CustomerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomerInfo.m; path = ../CustomerInfo.m; sourceTree = "<group>"; };
-		F6C286C31AAC205300AF9853 /* CalenderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalenderData.h; path = ../CalenderData.h; sourceTree = "<group>"; };
-		F6C286C41AAC205300AF9853 /* CalenderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalenderData.m; path = ../CalenderData.m; sourceTree = "<group>"; };
+		F6C286C71AAC3C4C00AF9853 /* CustomerInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomerInfo.h; sourceTree = "<group>"; };
+		F6C286C81AAC3C4C00AF9853 /* CustomerInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomerInfo.m; sourceTree = "<group>"; };
+		F6C286CD1AAC3FFE00AF9853 /* CalenderData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderData.h; sourceTree = "<group>"; };
+		F6C286CE1AAC3FFE00AF9853 /* CalenderData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderData.m; sourceTree = "<group>"; };
 		F6CFDAD91AABF8B900EE24F7 /* CalenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalenderViewController.h; sourceTree = "<group>"; };
 		F6CFDADA1AABF8B900EE24F7 /* CalenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalenderViewController.m; sourceTree = "<group>"; };
 		F6F880141AAAE29500195B1E /* LeftPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftPanelViewController.h; sourceTree = "<group>"; };
@@ -150,13 +150,13 @@
 		F633FE171AAAD24600DA4FC3 /* DBManager */ = {
 			isa = PBXGroup;
 			children = (
-				F6C286C31AAC205300AF9853 /* CalenderData.h */,
-				F6C286C41AAC205300AF9853 /* CalenderData.m */,
-				F6C286C01AAC205200AF9853 /* CustomerInfo.h */,
-				F6C286C11AAC205200AF9853 /* CustomerInfo.m */,
 				F633FE181AAAD26100DA4FC3 /* DBManager.h */,
 				F633FE191AAAD26100DA4FC3 /* DBManager.m */,
 				F633FE1B1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld */,
+				F6C286CD1AAC3FFE00AF9853 /* CalenderData.h */,
+				F6C286CE1AAC3FFE00AF9853 /* CalenderData.m */,
+				F6C286C71AAC3C4C00AF9853 /* CustomerInfo.h */,
+				F6C286C81AAC3C4C00AF9853 /* CustomerInfo.m */,
 			);
 			name = DBManager;
 			sourceTree = "<group>";
@@ -286,8 +286,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F633FE1D1AAAD2AF00DA4FC3 /* DBManager.xcdatamodeld in Sources */,
-				F6C286C51AAC205300AF9853 /* CalenderData.m in Sources */,
-				F6C286C21AAC205200AF9853 /* CustomerInfo.m in Sources */,
+				F6C286CF1AAC3FFE00AF9853 /* CalenderData.m in Sources */,
+				F6C286C91AAC3C4C00AF9853 /* CustomerInfo.m in Sources */,
 				F633FDFA1AAACE2600DA4FC3 /* ViewController.m in Sources */,
 				F633FDF71AAACE2600DA4FC3 /* AppDelegate.m in Sources */,
 				F6F8801C1AAAE2D700195B1E /* DrawerViewController.m in Sources */,

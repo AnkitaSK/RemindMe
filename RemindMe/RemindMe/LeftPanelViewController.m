@@ -8,12 +8,13 @@
 
 #import "LeftPanelViewController.h"
 #import "DBManager.h"
-#import "CalenderData.h"
 #import "CustomerInfo.h"
+#import "CalenderViewController.h"
 
 @interface LeftPanelViewController ()<UITableViewDataSource,UITabBarDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableviewCustomer;
 @property (strong,nonatomic) NSArray *customerInfoArray;
+@property (strong,nonatomic) NSArray *calendarDataArray;
 @end
 
 @implementation LeftPanelViewController
@@ -21,7 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.customerInfoArray = [[NSArray alloc] init];
-
+    self.calendarDataArray = [[NSArray alloc] init];
 //    connect to parse and fetch from parse
     
 //    store it in a db
@@ -39,13 +40,14 @@
     calenderData1.day = @10;
     calenderData1.month = @3;
     calenderData1.year = @2015;
+//    [self.calendarDataArray addObject:calenderData1];
     
     CalenderData *calenderData2 = [NSEntityDescription insertNewObjectForEntityForName:@"CalenderData" inManagedObjectContext:context];
     calenderData2.customerID = @2;
     calenderData2.day = @12;
     calenderData2.month = @3;
     calenderData2.year = @2015;
-    
+//    [self.calendarDataArray addObject:calenderData2];
     
     //save context
     NSError *error;
@@ -82,9 +84,26 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    CustomerInfo *info = [self.customerInfoArray objectAtIndex:indexPath.row];
     
+    NSManagedObjectContext *context = [[DBManager sharedInstance] managedObjectContext];
+    NSEntityDescription * entity = [NSEntityDescription entityForName:@"CalenderData" inManagedObjectContext:context];
+    
+    NSFetchRequest *fetchrequest = [[NSFetchRequest alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"customerID == %@",info.cutomerID];
+    [fetchrequest setEntity:entity];
+    [fetchrequest setPredicate:predicate];
+    
+    NSError *dberror;
+    NSArray *result = [context executeFetchRequest:fetchrequest error:&dberror];
+    if ([result count] > 0) {
+        CalenderData *data = [result objectAtIndex:0];
+    
+        NSLog(@"%@",data.day);
+        [self.leftPanelViewControllerDelegate customerSelectedWithCalendarData:data];
+    }
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -92,6 +111,6 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

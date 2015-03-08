@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalenderData.h"
+
+@protocol LeftPanelViewControllerDelegate <NSObject>
+
+-(void)customerSelectedWithCalendarData:(CalenderData *)calendarData;
+
+@end
 
 @interface LeftPanelViewController : UIViewController
-
+@property (weak,nonatomic) id<LeftPanelViewControllerDelegate>leftPanelViewControllerDelegate;
 @end

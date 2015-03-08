@@ -7,7 +7,6 @@
 //
 
 #import "CalenderViewController.h"
-#import "CalenderView.h"
 
 #define kHeaderHeight 1
 #define kInterSectionMargin 1
@@ -23,7 +22,7 @@ int count = 0;
     BOOL isBeginningOfNewYear;
     BOOL isNewYearSet;
 }
-@property (strong, nonatomic) IBOutlet CalenderView *calenderView;
+
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic) NSInteger weekDay;
 @property (nonatomic) NSInteger day;
@@ -102,6 +101,10 @@ int count = 0;
         [self.dataArray removeAllObjects];
     }
     [self.dataArray addObjectsFromArray:@[self.weekDaysArray,self.dayArray]];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidLoad {

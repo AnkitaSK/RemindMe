@@ -15,6 +15,14 @@
 
 @property (nonatomic, retain) NSString * customerName;
 @property (nonatomic, retain) NSNumber * cutomerID;
-@property (nonatomic, retain) CalenderData *calenderData;
+@property (nonatomic, retain) NSSet *calenderData;
+@end
+
+@interface CustomerInfo (CoreDataGeneratedAccessors)
+
+- (void)addCalenderDataObject:(CalenderData *)value;
+- (void)removeCalenderDataObject:(CalenderData *)value;
+- (void)addCalenderData:(NSSet *)values;
+- (void)removeCalenderData:(NSSet *)values;
 
 @end

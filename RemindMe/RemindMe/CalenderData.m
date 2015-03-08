@@ -16,5 +16,6 @@
 @dynamic weekday;
 @dynamic year;
 @dynamic customerID;
+@dynamic itemNo;
 
 @end
